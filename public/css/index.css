@@ -1,0 +1,387 @@
+	body
+	{
+		/*font-family: 'Ubuntu',sans-serif;*/
+		background-color: #efefef;
+	}
+	.jumbotron
+	{
+		background-color: #f4f4f4;
+		margin-top: 30px;
+	}
+	.navbar-brand
+	{
+		font-family: 'Lobster',cursive;
+		font-size: 16px;
+	}
+	.head
+	{
+		font-family: 'Indie Flower';
+		font-size: 35px;
+		color:red;
+	}
+	.form
+	{
+		display:block;
+	}
+	.navbar-fixed-top
+	{
+		border-bottom-width: 2px;
+		border-bottom-color: #c0c0c0;
+	}
+	.disp
+	{
+		color:#000000;
+		background-color:white;
+		display:none;
+		border:1px solid black;
+		margin-left:-15px;
+	}
+	a:hover
+	{
+		 opacity:0.5;
+	  	 filter=alpha(opacity=50);
+	}
+	.nodeco
+	{
+		text-decoration: none;
+	}
+	a:hover
+	{
+		text-decoration: none;
+		color:red;
+	}
+	.boxes
+	{
+		background: #ffffff;
+		color:#000000;
+		margin-top: 10px;
+		padding-bottom:30px;
+		min-height: 250px;
+		border:1px solid #d0d0d0;
+		border-bottom-width:2px;
+		border-right-width:2px;
+	}
+	.shadow
+	{
+		position: absolute;
+		bottom:2px;
+		background:rgba(0,0,0,0.8);
+		height: 80px;
+		font-family: Exo, sans-serif;
+		text-align: center;
+		font-size: 28px;
+		color:#fff;
+	}
+	.shadow:hover
+	{
+		font-size: 32px;
+	}
+	.noheight
+	{
+		height:0px;
+	}
+	.height
+	{
+		height: 130px;
+	}
+	.text
+	{
+	margin-top:110px;
+	text-align:right;
+	}
+	.Maternity_Homes
+	{
+	  min-width: 100%;
+	  background:url('../images/Maternity_Homes.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Birth_Centers
+	{
+	  min-width:100%;
+	  background:url('../images/Birth_Centers.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Cancer_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Cancer_Hospitals.jpg');
+	  filter=alpha(opacity=70);
+	  opacity:0.9;
+	  background-size:cover;
+	}
+	.General_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/General_Hospitals.jpg');
+	  filter=alpha(opacity=70);
+	  opacity:0.9;
+	  background-size:cover;
+	}
+	.Private_Eye_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Private_Eye_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Cardiology_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Cardiology_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Eye_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Eye_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Government_Eye_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Government_Eye_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Dialysis_Centres
+	{
+	  min-width:100%;
+	  background:url('../images/Dialysis_Centres.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Government_General_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Government_General_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Vitreo_Retinal_Surgeons
+	{
+	  min-width:100%;
+	  background:url('../images/Vitreo_Retinal_Surgeons.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Private_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Private_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Hospice_\&_Palliative_Care
+	{
+	  min-width:100%;
+	  background:url('../images/Hospice_&_Palliative_Care.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.IVF_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/IVF_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Multi_Speciality_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Multi_Speciality_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Tuberculosis_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Tuberculosis_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Neurology_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Neurology_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Veterinary_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Veterinary_Hospitals.jpg');
+	  opacity:0.9;
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Orthopaedic_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Orthopaedic_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.Psychiatric_Hospitals
+	{
+	  min-width:100%;
+	  background:url('../images/Psychiatric_Hospitals.jpg');
+	  opacity:0.9; 	
+	  filter=alpha(opacity=70);
+	  background-size:cover;
+	}
+	.toptext
+	{
+		margin-top:10px;
+	}
+	.review
+	{
+		font-size: 12px;
+		text-align:right;
+	}
+	.boxes1
+	{
+		background: #ffffff;
+		color:#428bca;
+		padding: 20px;
+		margin-top: 10px;
+		padding-bottom:30px;
+		min-height: 120px;
+		border:1px solid #d0d0d0;
+		border-bottom-width:2px;
+		border-right-width:2px;
+	}
+	.hospover a:hover
+	{
+		color:red;
+	}
+	.heading 
+	{
+		color:#000000;
+	}
+	.direct
+	{
+		font-family: Lobster;
+		color:red;
+		text-align:right;
+	}
+	.direct a
+	{
+		font-family: Lobster;
+	}
+	.headspace
+	{
+		margin-top: 100px;
+	}
+	.hospital--name
+	{
+		font-size: 34px;
+		color:#ff4c4c;
+		font-family: Bree Serif,Ubuntu;
+		margin: 20px 0 0 10px;
+		font-weight: 300;
+	}
+	.map--directions
+	{
+		font-size: 12px;
+		font-family: Exo, Ubuntu;
+		margin: 30px 0 0 0;
+		text-decoration: none;
+	}
+	.map--directions:hover
+	{
+		color:#000;
+	}
+	.hospital--address
+	{
+		font-family: Monteserrat, Exo, sans-serif;
+		font-size: 16px;
+		font-style: italic;
+		margin: 10px 20px 0 0;
+		color: #00b2cc;
+	}
+	.hospital--contact
+	{
+		font-family: Monteserrat, Exo, sans-serif;
+		font-size: 16px;
+		font-style: italic;
+		margin: 10px 20px 0 0;
+		color: #00b2cc;
+	}
+	.hospital--speciality
+	{
+		font-style: Exo, Times;
+		font-size: 9px;
+		text-align: right;
+		/*margin-right: 5px;*/
+	}
+	.appreciations
+	{
+		color:#ff1919;
+	}
+	.experiences
+	{
+		color:#009599;
+	}
+	.no-radius
+	{
+	    border-radius:0px;
+	    min-width:100px;
+	}
+	.no-radius:hover
+	{
+	    background-color: #fff;
+	    color: #428bca;
+	}
+	.suppliment 
+	{
+		background-color: #ffffff;
+		margin-top:10px;
+		min-height: 600px;	
+		position: relative;
+	}
+	.suppliment p a
+	{
+		font-family: Exo;
+		font-size: 10px;
+	}
+	.add--more
+	{
+		font-family: Bree Serif;
+		font-size: 18px;
+		color:#ff4c4c;;
+	}
+	.close--town
+	{
+		font-size: 12px;
+		font-family: Monteserrat,sans-serif;
+	}
+	.href-hospital--name
+	{
+		text-decoration: none;
+	}
+	.display--more
+	{
+		height: 350px;
+		overflow-y: scroll;
+		vertical-align: baseline;
+	}
