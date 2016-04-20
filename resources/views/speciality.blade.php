@@ -69,7 +69,7 @@
 		</div>
 	</div>
 	</div>
-	<div class="col-sm-12 col-md-2	"></div>
+	<div class="col-sm-12 col-md-2"></div>
 	</div>
 @endforeach
 </div>

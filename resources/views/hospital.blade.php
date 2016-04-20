@@ -1,17 +1,24 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>React</title>
+@extends('layouts.master')
+@section('headlinks')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
-  </head>
-  <body>
-    <div id="content"></div>
+@endsection
+@section('content')
+@foreach($datas as $data)
+	<center><h2>{{$data->HospitalName}}</h2></center>
+	<hr/>
+	<center><p class="hospital--address">{!!preg_replace('/[^A-Za-z0-9\-#,\'".]/',' ',$data->Address)!!}</p></center>
+	<br>
+	<center><p class="hospital--contact">${{$data->Contact_info}}</p></center>
+	<br>
+	<center><p class="hospital--speciality">{{$data->Speciality}}</p></center>
+	<br>
+@endforeach
+<div id="content"></div>
+<br>
     <script type="text/babel">
 	var Comment = React.createClass({
       	rawMarkup: function() {
@@ -21,9 +28,9 @@
       	render: function(){
       		return (
       		<div className="comment">
-      			<h2 className="commentAuthor">
+      			<h3 className="commentAuthor">
       				{this.props.author}
-      			</h2>
+      			</h3>
       			<span dangerouslySetInnerHTML={this.rawMarkup()} />
       		</div>
       		);
@@ -60,7 +67,6 @@
       		e.preventDefault();
       		var author = this.state.author.trim();
       		var text = this.state.text.trim();
-          alert(author+" "+text);
       		if(!author || !text)
       			return;
       		this.props.onCommentSubmit({author:author,text:text});
@@ -69,8 +75,8 @@
       	render: function(){
       		return (
       			<form className="commentForm" onSubmit={this.handleSubmit}>
-      				<input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange} autoComplete="on"/>
-      				<input type="text" placeholder="Say something.." value={this.state.text} onChange={this.handleTextChange} />
+      				<input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange} autoComplete="on" id="commentName"/>
+      				<input type="text" placeholder="Say something.." value={this.state.text} onChange={this.handleTextChange} id="commentText"/>
       				<input type="submit" value="Post" />
       			</form>
       			);
@@ -114,7 +120,7 @@
       	render: function(){
       		return (
       			<div className="CommentBox">
-	      			<h1>Comments</h1>
+	      			<h2>Comments</h2>
 	      			<CommentList data={this.state.data} />
 	      			<CommentForm onCommentSubmit={this.handleCommentSubmit} />
       			</div>
@@ -122,9 +128,8 @@
       	}
       });
       ReactDOM.render(
-      	<CommentBox url="api/comments/" pollInterval={2000} />,
+      	<CommentBox url="http://medplus.dev/api/comments/{{$locality}}/{{$id}}" pollInterval={2000} />,
       	document.getElementById('content')
       	);
     </script>
-  </body>
-</html>
+@endsection

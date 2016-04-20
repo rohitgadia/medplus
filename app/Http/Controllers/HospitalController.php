@@ -6,28 +6,24 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\ChennaiList;
+use App\Mongodb;
 
 class HospitalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *  Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index($locality)
     {
-        $datas = DB::table('a_chennai_listings')->where('locality',$locality)->get();
-        if(!$datas)
+        $datas = ChennaiList::where('locality',$locality)->get();
+        if($datas->isEmpty())
             abort(404);
         else
         return view('list',compact('datas','locality'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         
@@ -36,7 +32,7 @@ class HospitalController extends Controller
     {
         $speciality = explode("_", $speciality);
         $speciality = implode(" ",$speciality);
-        $count = DB::table('a_chennai_listings')->count();
+        $count = ChennaiList::count();
         $adjacent = array();
         for($i=0;$i<$count;$i++)
         {
@@ -51,28 +47,35 @@ class HospitalController extends Controller
                     }
             }    
         }
+        $datas = ChennaiList::where("locality",$locality)->get();
+        if(!$datas->isEmpty())
+        {
         $lists = DB::table($locality)->where('speciality',$speciality)->get();
         if(!$lists)
            abort(404);
         else
             return view('speciality',compact('lists','locality','speciality','adjacent'));
+        }
+        else
+            abort(404);
     }
-    public function commentRequest()
+    public function commentRequest($locality,$id)
     {
-        $comments = file_get_contents('comments.json');
+        $hospital = "comments/".$locality.'/'.$id;
+        $comments = Mongodb::where('hospital',$hospital)->get();
+        $comments = json_encode($comments,JSON_PRETTY_PRINT);
         $uri = $_SERVER['REQUEST_URI'];
-        if ($uri == '/comments') {
-            return view('react');
-        } else if (preg_match('/\/api\/comments(\?.*)?/', $uri)) {
+        if(preg_match('/\/api\/comments(\?.*)?/', $uri)) {
+            $hospital = explode("api/", $uri);
+            $hospital = $hospital[1];
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $commentsDecoded = json_decode($comments, true);
-                $commentsDecoded[] = [
-                    'id'      => round(microtime(true) * 1000),
-                    'author'  => $_POST['author'],
-                    'text'    => $_POST['text']
-                ];
-                $comments = json_encode($commentsDecoded, JSON_PRETTY_PRINT);
-                file_put_contents('comments.json', $comments);
+                $comment = new Mongodb;
+                $comment->id = round(microtime(true) * 1000);
+                $comment->author = $_POST['author'];
+                $comment->text = $_POST['text'];
+                $comment->hospital = $hospital;
+                $comment->save();
+                $comments = Mongodb::where('hospital',$hospital)->get();
             }
             header('Content-Type: application/json');
             header('Cache-Control: no-cache');
@@ -81,16 +84,14 @@ class HospitalController extends Controller
             return false;
         }
     }
-    public function routeRequestPost()
+    public function getHospital($locality,$id)
     {
-        $uri = $_SERVER['REQUEST_URI'];
-        echo $uri;
-        if(preg_match('/\api/\comments(\?.*)?/', $uri))
-        {
+        $datas = DB::table($locality)->where('id',$id)->get();
+        if(!$datas)
             abort(404);
-        }
+        else
+        return view('hospital',compact('locality','id','datas'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
