@@ -18,10 +18,10 @@ Route::post('/',function(){
 	return view('welcome');
 });
 Route::get('404',function(){
-	return view('404');
+	return view('errors/404');
 });
 Route::get('403',function(){
-	return view('403');
+	return view('errors/403');
 });
 Route::get('auth/login',function(){
 	return view('login');
