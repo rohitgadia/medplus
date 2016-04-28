@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,9 +8,9 @@
     <meta name="description" content="A location centric, fully categorized medical app">
     <meta name="author" content="rohitgadia">
     <title>Medplus - Your Hospital finder</title>
-	<link type="text/css" href="http://medplus.dev/css/bootstrap.css?v=1.0" rel="stylesheet">
-	<link type="text/css" href="http://medplus.dev/css/index.css?v-1.0" rel="stylesheet">
-  <!-- <link rel="stylesheet" type="text/css" href="http://medplus.dev/css/font-awesome-4.1.0/css/font-awesome.min.css"> -->
+	<link type="text/css" href="http://cdn1.rohitag.in/css/bootstrap.css?v=1.0" rel="stylesheet">
+	<link type="text/css" href="http://cdn1.rohitag.in/css/index.css?v-1.0" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="http://cdn1.rohitag.in/css/font-awesome-4.1.0/css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?v=1.0">
   @yield('headlinks')
 	</head>
@@ -42,10 +42,10 @@
     <div class="container">
     @yield('content')
 	</div>
-  <script type="text/javascript" src="http://medplus.dev/js/jquery.js?v=1.0"></script>
+  <script type="text/javascript" src="http://cdn1.rohitag.in/js/jquery.js?v=1.0"></script>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300|Lobster|Indie+Flower' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Bree+Serif|Pacifico|Exo:400,300italic,400italic,500' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="http://medplus.dev/js/bootstrap.min.js?v=1.0"></script>
-  <script type="text/javascript" src="http://medplus.dev/js/app.js?v=1.0"></script>
+  <script type="text/javascript" src="http://cdn1.rohitag.in/js/bootstrap.min.js?v=1.0"></script>
+  <script type="text/javascript" src="http://cdn1.rohitag.in/js/app.js?v=1.0"></script>
 	</body>
   </html>
