@@ -1,4 +1,10 @@
 @extends('layouts.master')
+@section('headlinks')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+@endsection
 @section('content')
 <div class="container shade--list">
 <div class="row">
@@ -11,11 +17,7 @@
 		<hr>
 		<h5 class="add--more">Show Hopsitals from:</h5>
 		<div class="col-md-12">
-		<div class="display--more">
-			@foreach($adjacent as $adj)
-				<input type="checkbox" class="close--town">&nbsp;{!!ucfirst($adj)!!}
-				<br>
-			@endforeach
+		<div class="display--more" id="display-near">
 		</div>
 		</div>
 	</div>
@@ -37,7 +39,7 @@
 				See Map&nbsp;<i class="fa fa-map"></i>
 				</p>
 			</a>
-		</div>	
+		</div>
 	</div>
 	<hr>
 	<div class="col-sm-12 col-md-12">
@@ -75,4 +77,53 @@
 </div>
 </div>
 </div>
+<script type="text/babel">
+	var data = [];
+	var Checkboxes = React.createClass({
+		render: function(){
+			return (
+				<input type="checkbox" className="close--town" >
+					Welcome
+				</input>
+			);
+		}
+	});
+	var CheckboxList = React.createClass({
+		render: function(){
+			var Localities = this.props.data.map(function(locality){
+				return (
+					<Checkboxes />
+				);
+			});
+			return (
+				{Localities}
+			);
+		}
+	});
+	var CheckboxFrame = React.createClass({
+		getInitialState : function(){
+			$.ajax({
+				url : this.props.url,
+				datatype : 'json',
+				cache : false,
+				success : function(data) {
+					data : data;
+				}.bind(this),
+				error : function(xhr,status,err) {
+					console.error(this.props.url,status,err.toString());
+				}.bind(this)
+			});
+			return {data:data};
+		},
+		render: function(){
+			return (
+				<CheckboxList data={data} />
+			);
+		}
+	});
+	ReactDOM.render(
+		<CheckboxFrame url="http://{{env('APP_URL')}}/adjacent/{{$locality}}/{{$speciality}}" pollInterval={2000}/>,
+		document.getElementById("display-near")
+	);
+</script>
 @endsection

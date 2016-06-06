@@ -26,6 +26,7 @@ Route::get('403',function(){
 Route::get('auth/login',function(){
 	return view('login');
 });
+Route::get('/adjacent/{locality}/{speciality}','HospitalController@adjacent');
 Route::get('/loc/{locality}','HospitalController@index');
 Route::get('/loc/{locality}/{id}','HospitalController@getHospital')->where('id','[0-9]+');
 Route::get('/loc/{locality}/{speciality}','HospitalController@speciality');

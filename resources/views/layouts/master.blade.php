@@ -1,4 +1,4 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -43,9 +43,10 @@
     @yield('content')
 	</div>
   <script type="text/javascript" src="http://cdn1.rohitag.in/js/jquery.js?v=1.0"></script>
+  <script type="text/javascript" src="http://medplus.dev/js/app.js?v=1.0"></script>
+  <!-- <script type="text/javascript" src="http://cdn1.rohitag.in/js/app.js?v=1.0"></script> -->
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300|Lobster|Indie+Flower' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Bree+Serif|Pacifico|Exo:400,300italic,400italic,500' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="http://cdn1.rohitag.in/js/bootstrap.min.js?v=1.0"></script>
-  <script type="text/javascript" src="http://cdn1.rohitag.in/js/app.js?v=1.0"></script>
 	</body>
   </html>

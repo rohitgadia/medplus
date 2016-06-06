@@ -18,7 +18,11 @@ class HospitalController extends Controller
      */
     public function index($locality)
     {
+        $unparsed = $locality;
+        $split = explode("_",$locality);
+        $locality = implode(" ",$split);
         $datas = ChennaiList::where('locality',$locality)->get();
+        $locality = $unparsed;
         if($datas->isEmpty())
             abort(404);
         else
@@ -26,10 +30,13 @@ class HospitalController extends Controller
     }
     public function create()
     {
-        
+
     }
     public function speciality($locality,$speciality)
     {
+        $unparsed = $locality;
+        $split = explode("_",$locality);
+        $locality = implode(" ",$split);
         $speciality = explode("_", $speciality);
         $speciality = implode(" ",$speciality);
         $count = ChennaiList::count();
@@ -45,19 +52,40 @@ class HospitalController extends Controller
                     {
                         $adjacent[] =  $contains[0]->locality;
                     }
-            }    
+            }
         }
         $datas = ChennaiList::where("locality",$locality)->get();
         if(!$datas->isEmpty())
         {
         $lists = DB::table($locality)->where('speciality',$speciality)->get();
+        $locality = $unparsed;
         if(!$lists)
            abort(404);
         else
-            return view('speciality',compact('lists','locality','speciality','adjacent'));
+            return view('speciality',compact('lists','locality','speciality'));
         }
         else
             abort(404);
+    }
+    public function adjacent($locality,$speciality)
+    {
+      $locality = implode(" ",explode("_",$locality));
+      $count = ChennaiList::count();
+      $adjacent = array();
+      for($i=0;$i<$count;$i++)
+      {
+          $array = array();
+          $contains = DB::table('a_chennai_listings')->select('speciality','locality')->where('id',$i+1)->get();
+          if($contains)
+          {
+              $array = explode("|", $contains[0]->speciality);
+                  if(in_array($speciality, $array))
+                  {
+                      $adjacent[] =  $contains[0]->locality;
+                  }
+          }
+      }
+      echo json_encode($adjacent,128);
     }
     public function commentRequest($locality,$id)
     {
@@ -86,6 +114,9 @@ class HospitalController extends Controller
     }
     public function getHospital($locality,$id)
     {
+        $unparsed = $locality;
+        $locality = explode("_",$locality);
+        $locality = implode(" ",$locality);
         $datas = DB::table($locality)->where('id',$id)->get();
         if(!$datas)
             abort(404);

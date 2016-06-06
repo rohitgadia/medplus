@@ -3,7 +3,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
 @endsection
 @section('content')
@@ -17,7 +16,7 @@
 	<center><p class="hospital--speciality">{{$data->Speciality}}</p></center>
 	<br>
 @endforeach
-<div id="content"></div>
+<div id="comments"></div>
 <br>
     <script type="text/babel">
 	var Comment = React.createClass({
@@ -129,7 +128,7 @@
       });
       ReactDOM.render(
       	<CommentBox url="http://medplus.dev/api/comments/{{$locality}}/{{$id}}" pollInterval={2000} />,
-      	document.getElementById('content')
+      	document.getElementById('comments')
       	);
     </script>
 @endsection

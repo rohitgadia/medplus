@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST'),
-            'database'  => env('DB_DATABASE'),
-            'username'  => env('DB_USERNAME'),
-            'password'  => env('DB_PASSWORD'),
+            'host'      => env('MYSQL_DB_HOST'),
+            'database'  => env('MYSQL_DB_DATABASE'),
+            'username'  => env('MYSQL_DB_USERNAME'),
+            'password'  => env('MYSQL_DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -86,11 +86,11 @@ return [
         ],
         'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => env('DB_HOST', 'localhost'),
-            'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE', 'comments_likes'),
-            'username' => env('DB_USERNAME', 'dbadmin'),
-            'password' => env('DB_PASSWORD', 'rohitgadia95'),
+            'host'     => env('MONGO_DB_HOST'),
+            'port'     => env('MONGO_DB_PORT'),
+            'database' => env('MONGO_DB_DATABASE'),
+            'username' => env('MONGO_DB_USERNAME'),
+            'password' => env('MONGO_DB_PASSWORD'),
             'options' => [
                 'db' => '' // sets the authentication database required by mongo 3
             ]
